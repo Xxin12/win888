@@ -1,0 +1,38 @@
+# ===================== 依赖 =====================
+node_modules/
+
+# ===================== 运行时数据（SQLite，约 2.3GB）=====================
+# 数据通过 Docker 卷挂载持久化，绝不能进仓库 / 镜像
+data/
+backups/
+
+# ===================== 前端构建产物（由 `npm run build` 重新生成）=====================
+server/public/app.js
+server/public/app.js.map
+server/public/index.html
+server/public/.version
+
+# ===================== 日志 =====================
+*.log
+server.err.log
+server.out.log
+server.log
+
+# ===================== 本地截图 / 验证图片（仅开发期）=====================
+*.png
+
+# ===================== Windows 启动脚本（Docker 部署不需要）=====================
+启动.bat
+launch_svc.bat
+
+# ===================== 编辑器 / 系统 / 工具 =====================
+.workbuddy/
+.vscode/
+.idea/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# ===================== 本地环境变量（含密钥，勿提交）=====================
+.env

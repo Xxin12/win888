@@ -1,0 +1,23 @@
+{
+  "name": "quant-web",
+  "version": "1.0.0",
+  "description": "简易量化系统 - 本地单机 (Express + React + ECharts)，数据源：腾讯自选股(实时)/通达信(历史)",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "node build.js",
+    "start": "node server/index.js",
+    "dev": "node build.js && node server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "html2canvas": "^1.4.1",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "echarts": "^5.5.1",
+    "esbuild": "^0.23.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

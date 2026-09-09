@@ -1,0 +1,10 @@
+{
+  "TDX_TOKEN": "",
+  "PORT": 8899,
+  "BIND": "0.0.0.0",
+  "TDX_HOSTS": "",
+  "TDX_REQUEST_GAP_MS": 400,
+  "TDX_MAX_RETRY": 3,
+  "TDX_CACHE_MAX": 4000,
+  "PYTHON_BIN": "C:\\Users\\miao\\.workbuddy\\binaries\\python\\envs\\default\\Scripts\\python.exe"
+}

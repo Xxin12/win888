@@ -1,0 +1,34 @@
+# 依赖与构建产物（构建阶段会重新安装/打包，无需进镜像）
+node_modules
+npm-debug.log*
+server/public/app.js
+server/public/app.js.map
+server/public/index.html
+server/public/.version
+
+# 数据与数据库：约 2.3GB，必须靠卷挂载持久化，绝不能打进镜像
+data
+backups
+*.db
+*.db-shm
+*.db-wal
+
+# 日志
+*.log
+server.log
+
+# 本地脚本 / 启动辅助 / 文档（无需进镜像）
+scripts
+launch_svc.bat
+启动.bat
+.workbuddy
+*.md
+
+# 版本控制与系统文件
+.git
+.gitignore
+.DS_Store
+Thumbs.db
+
+# 已有的部署草稿本身可忽略（避免递归拷贝）
+docker-compose.override.yml

@@ -1,0 +1,31 @@
+services:
+  quant-web:
+    build: .
+    image: quant-web:latest
+    container_name: quant-web
+    # init: true 启用 tini，正确回收可选的 TDX python 子进程，避免僵尸进程
+    init: true
+    ports:
+      - "5178:5178"
+    environment:
+      - PORT=5178
+      - TZ=Asia/Shanghai
+      # 可选：使用外部 TDX 网关（留空则走腾讯/新浪/东财公开源）
+      # - TDX_ENDPOINT=http://host.docker.internal:10000
+      # - TDX_TOKEN=xxxxxxxx
+    volumes:
+      # 核心：数据持久化。已有数据可直接复用本机 quant-web/data
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:5178/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    # 可选：限制资源，避免量化回补任务跑满宿主机
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "2.0"
+    #       memory: 2G
