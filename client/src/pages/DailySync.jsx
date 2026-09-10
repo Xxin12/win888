@@ -97,7 +97,7 @@ export default function DailySync() {
   const lastResult = st && st.status && st.status.lastResult;
   const td = st && st.tradingDay;
   const lastProcessedDay = st && st.lastProcessedDay;
-  const idxResult = running ? null : (lastResult || {});
+  const idxResult = lastResult || {};
   const showBar = running || (progress && ['done', 'skipped', 'error'].includes(progress.phase));
 
   return (
